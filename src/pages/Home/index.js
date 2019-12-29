@@ -16,7 +16,6 @@ class Home extends Component{
     }
 
     loadFilmes(){
-        //https://sujeitoprogramador.com/r-api/?api=filmes
         let url = 'https://sujeitoprogramador.com/r-api/?api=filmes'
         fetch(url)
         .then((r) => r.json())
@@ -30,12 +29,12 @@ class Home extends Component{
         return(
             <div className='container'>
                 <div className='lista-filmes'>
-                    {this.state.filmes.map((item) => {
+                    {this.state.filmes.map((filme) => {
                         return(
-                            <article key={item.id} className='filme'>
-                                <strong>{item.nome}</strong>
-                                <img src={item.foto} alt="Capa"/>
-                                <Link to='/'>Acessar</Link>
+                            <article key={filme.id} className='filme'>
+                                <strong>{filme.nome}</strong>
+                                <img src={filme.foto} alt="Capa"/>
+                                <Link to={`/filme/${filme.id}`}>Acessar</Link>
                             </article>
                         )
                     })}
